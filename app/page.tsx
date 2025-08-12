@@ -1,5 +1,4 @@
-import dynamic from 'next/dynamic';
-const OrderBook = dynamic(() => import('@/components/OrderBook'), { ssr: false });
+import OrderBook from "../components/OrderBook";
 export default function Home() {
   return <OrderBook />;
 }

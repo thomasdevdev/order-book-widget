@@ -1,4 +1,4 @@
-'use client';
+"use client";
 /* TODO:
    – connect to /api/order-stream via EventSource or fetch‑stream
    – maintain bid/ask list in React state
@@ -6,5 +6,5 @@
    – clean up on unmount
 */
 export default function OrderBook() {
-  return null;
+  return <div>OrderBookComponent</div>;
 }
