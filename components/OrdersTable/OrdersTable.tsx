@@ -9,6 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import type { Order } from "../../app/types";
 import OrderRow from "../OrdersRow/OrdersRow";
+import isEqual from "lodash/isEqual";
 
 const OrdersTable = () => {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -48,7 +49,13 @@ const OrdersTable = () => {
         </TableHead>
         <TableBody>
           {orders.map((order, index) => (
-            <OrderRow key={index} order={order} />
+            <OrderRow
+              key={index}
+              order={order}
+              prevOrder={get(orders, [
+                isEqual(index, orders.length + 1) ? index : index + 1,
+              ])}
+            />
           ))}
         </TableBody>
       </Table>
