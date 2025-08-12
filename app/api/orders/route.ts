@@ -5,7 +5,7 @@ export async function GET() {
   let price = 100;
 
   const push = async () => {
-    price += (Math.random() - 0.5);
+    price += Math.random() - 0.5;
     await writer.write(`data: ${JSON.stringify({ price })}\n\n`);
     setTimeout(push, 1000);
   };
@@ -13,9 +13,9 @@ export async function GET() {
 
   return new Response(readable, {
     headers: {
-      'Content-Type': 'text/event-stream',
-      'Cache-Control': 'no-cache',
-      'Connection': 'keep-alive'
-    }
+      "Content-Type": "text/event-stream",
+      "Cache-Control": "no-cache",
+      Connection: "keep-alive",
+    },
   });
 }
