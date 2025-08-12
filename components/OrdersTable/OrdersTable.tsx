@@ -21,7 +21,7 @@ const OrdersTable = () => {
 
       setOrders((prevOrders) => [
         { price: get(data, "price", 0), date: new Date() },
-        ...prevOrders,
+        ...prevOrders.slice(0, 19),
       ]);
     };
 
